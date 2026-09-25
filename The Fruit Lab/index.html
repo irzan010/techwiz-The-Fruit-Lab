@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+  <title>The Fruit Lab - Farmers Market Discovery Platform</title>
+
+  
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+
+  
+ <!-- 1. NAVIGATION BAR -->
+<nav id="navbar">
+  <a id="brand" href="#home"><img src="pictures/logo/nav-logo.png" style="border-radius: 10px;" height="30" alt="The Fruit Lab logo"></a>
+
+  <!-- Hamburger button (only visible on small screens) -->
+  <button id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div id="menu">
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#markets">Markets</a></li>
+      <li><a href="#produce">Products</a></li>
+      <li><a href="#sales">Hot Deals</a></li>
+      <li><a href="#seasonal">Seasonal Guide</a></li>
+      <li><a href="#bookmarks">Bookmarks</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="auth-buttons">
+      <button class="btn-login" onclick="alert('Dummy Login: Feature coming soon!')">Login</button>
+      <button class="btn-signup" onclick="alert('Dummy Sign Up: Feature coming soon!')">Sign Up</button>
+    </div>
+  </div>
+</nav>
+
+   <!-- 2. HERO BANNER & SEARCH -->
+  <header id="home">
+  <div class="hero-content">
+    <span class="badge"><b></b>100% Organic & Local Vendors</b></span>
+    
+    <h1><strong>Find Fresh Food &  Markets Near You 
+
+    </strong></h1>
+    
+    <p><strong>Explore nearby farmers markets, discover what's in season, find weekly vendor sales, and shop fresh fruits, vegetables, dairy, and artisanal goods.</strong></p>
+    
+    <form class="search-form" onsubmit="return false;">
+      <input type="text" placeholder="Search by market, area, fruit, or produce item...">
+      <button type="button">Search</button>
+    </form>
+  </div>
+</header>
+
+  <!-- HERO CAROUSEL -->
+ 
+<div class="carousel-section my-4">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="pictures/carousel/1.png" class="d-block w-100" alt="Fresh farmers market">
+      </div>
+      <div class="carousel-item">
+        <img src="pictures/carousel/2.png" class="d-block w-100" alt="Bucket of fresh fruit">
+      </div>
+      <div class="carousel-item">
+        <img src="pictures/carousel/3.png" class="d-block w-100" alt="Seasonal fruits">
+      </div>
+      <div class="carousel-item">
+        <img src="pictures/carousel/4.png" class="d-block w-100" alt="Fresh fruit selection">
+      </div>
+      <div class="carousel-item">
+        <img src="pictures/carousel/5.png" class="d-block w-100" alt="Organic vegetables">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
+   <!-- 3. HOT SALES & DISCOUNTS SECTION -->
+  <section id="sales">
+  <div class="sales-header">
+    <div>
+      <span class="subtitle">Hot Deals This Week</span>
+      <h2>Vendor Sales & Special Discounts</h2>
+    </div>
+    <span class="badge-alert">Limited Time Offers</span>
+  </div>
+
+  <div class="sales-grid">
+    
+    <div class="card">
+      <span class="discount-tag">20% OFF</span>
+      <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&auto=format&fit=crop&q=60" alt="Organic Apples">
+      <div class="card-content">
+        <span class="category">Fruit</span>
+        <h3>Honeycrisp Apples</h3>
+        <p class="vendor">Green Valley Market</p>
+        <div class="price-box">
+          <span class="current-price">$2.40 / lb</span>
+          <span class="old-price">$3.00 / lb</span>
+        </div>
+        <p class="description">Crisp, sweet orchard apples harvested fresh this week.</p>
+      </div>
+      <div class="card-footer">
+        <span class="status-tag">Sale Ends Saturday</span>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <span class="discount-tag">BUY 1 GET 1 FREE</span>
+      <img src="https://images.unsplash.com/photo-1598170845058-12ef4a457939?w=500&auto=format&fit=crop&q=60" alt="Fresh Carrots">
+      <div class="card-content">
+        <span class="category">Vegetables</span>
+        <h3>Organic Bunch Carrots</h3>
+        <p class="vendor">Sunrise Community Market</p>
+        <div class="price-box">
+          <span class="current-price">$1.99 / bunch</span>
+        </div>
+        <p class="description">Sweet farm-fresh carrots with vibrant leafy tops attached.</p>
+      </div>
+      <div class="card-footer">
+        <span class="status-tag">BOGO Vendor Deal</span>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <span class="discount-tag">15% OFF</span>
+      <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500&auto=format&fit=crop&q=60" alt="Artisanal Cheese">
+      <div class="card-content">
+        <span class="category">Dairy</span>
+        <h3>Aged Farmhouse Cheddar</h3>
+        <p class="vendor">Riverside Organic Plaza</p>
+        <div class="price-box">
+          <span class="current-price">$5.50 / block</span>
+          <span class="old-price">$6.50</span>
+        </div>
+        <p class="description">Aged 12 months, rich flavor, crafted in small batches locally.</p>
+      </div>
+      <div class="card-footer">
+        <span class="status-tag">Vendor Special</span>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <span class="discount-tag">30% OFF</span>
+      <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?w=500&auto=format&fit=crop&q=60" alt="Raw Honey">
+      <div class="card-content">
+        <span class="category">Pantry</span>
+        <h3>Wildflower Honey Jar</h3>
+        <p class="vendor">Downtown Evening Market</p>
+        <div class="price-box">
+          <span class="current-price">$7.00 / jar</span>
+          <span class="old-price">$10.00</span>
+        </div>
+        <p class="description">100% pure raw unfiltered honey from local bee hives.</p>
+      </div>
+      <div class="card-footer">
+        <span class="status-tag">Weekend Special</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- 4. PRODUCE & PRODUCTS GUIDE SECTION -->
+  <section id="produce">
+  <div class="directory-header">
+    <span class="subtitle">Comprehensive Directory</span>
+    <h2>Produce & Goods Guide</h2>
+    <p>Explore fresh fruits, vegetables, herbs, dairy, and artisanal goods available across our partner markets.</p>
+
+    <div class="filters">
+      <button class="filter-btn active">All Goods</button>
+      <button class="filter-btn">🍎 Fruits</button>
+      <button class="filter-btn">🥦 Vegetables</button>
+      <button class="filter-btn">🌿 Herbs & Spices</button>
+      <button class="filter-btn">🧀 Dairy & Eggs</button>
+      <button class="filter-btn">🍯 Pantry & Jams</button>
+    </div>
+  </div>
+
+  <div class="produce-grid">
+    <!-- Item 1 -->
+    <div class="card">
+      <div class="icon">🍅</div>
+      <span class="category cat-veg">Vegetable</span>
+      <h3>Heirloom Tomatoes</h3>
+      <p>Juicy, rich-flavored organic heirloom varieties harvested at peak ripeness.</p>
+      <span class="market-count">Sold at 3 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="card">
+      <div class="icon">🍓</div>
+      <span class="category cat-fruit">Fruit</span>
+      <h3>Field Strawberries</h3>
+      <p>Sweet, sun-ripened local berries picked daily from nearby orchards.</p>
+      <span class="market-count">Sold at 2 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="card">
+      <div class="icon">🍊</div>
+      <span class="category cat-fruit">Fruit</span>
+      <h3>Navel Oranges</h3>
+      <p>Vitamin-C packed juicy oranges grown sustainably without pesticides.</p>
+      <span class="market-count">Sold at 4 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="card">
+      <div class="icon">🌿</div>
+      <span class="category cat-herb">Herb</span>
+      <h3>Sweet Italian Basil</h3>
+      <p>Aromatic green basil perfect for pestos, pasta dishes, and salads.</p>
+      <span class="market-count">Sold at 2 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="card">
+      <div class="icon">🧀</div>
+      <span class="category cat-dairy">Dairy</span>
+      <h3>Artisanal Cheese</h3>
+      <p>Handcrafted cheddar, gouda, and goat cheese blocks made fresh locally.</p>
+      <span class="market-count">Sold at 3 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="card">
+      <div class="icon">🍯</div>
+      <span class="category cat-pantry">Pantry</span>
+      <h3>Raw Wildflower Honey</h3>
+      <p>Unfiltered local honey bottled direct from regional apiaries.</p>
+      <span class="market-count">Sold at 2 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 7 -->
+    <div class="card">
+      <div class="icon">🍞</div>
+      <span class="category cat-bakery">Bakery</span>
+      <h3>Sourdough Bread</h3>
+      <p>Naturally fermented crusty sourdough baked fresh every morning.</p>
+      <span class="market-count">Sold at 4 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+
+    <!-- Item 8 -->
+    <div class="card">
+      <div class="icon">🥦</div>
+      <span class="category cat-veg">Vegetable</span>
+      <h3>Organic Broccoli</h3>
+      <p>Nutrient-rich crisp green broccoli heads grown with eco-friendly methods.</p>
+      <span class="market-count">Sold at 3 Markets</span>
+      <button class="action-btn">Find Vendor</button>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MARKET DIRECTORY SECTION -->
+  <section id="markets">
+  <div class="markets-header">
+    <div>
+      <h2>Farmers Market Directory</h2>
+      <p>Discover local markets, schedules, location maps, and open hours.</p>
+    </div>
+    
+    <div class="markets-controls">
+      <button class="btn-location">Near Me</button>
+      <select class="area-select">
+        <option value="">All Areas</option>
+        <option value="downtown">Downtown</option>
+        <option value="eastside">Eastside</option>
+        <option value="westside">Westside</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="markets-grid">
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&auto=format&fit=crop&q=60" alt="Green Valley Market">
+      <div class="card-body">
+        <div class="card-top">
+          <span class="status status-open">Open Now · Closes in 3h</span>
+          <button class="btn-bookmark">★</button>
+        </div>
+        <h3>Green Valley Farmers Market</h3>
+        <p class="address">101 Park Ave, Downtown</p>
+        <p class="description">Vibrant market featuring organic veggies, berries, fresh bread, and local dairy.</p>
+        <div class="schedule">
+          <strong>Schedule:</strong> Mon, Wed, Sat (8:00 AM - 2:00 PM)
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="#market-detail-1" class="btn-details">View Detail & Google Map</a>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=600&auto=format&fit=crop&q=60" alt="Sunrise Community Market">
+      <div class="card-body">
+        <div class="card-top">
+          <span class="status status-closed">Closed · Opens Tomorrow 9 AM</span>
+          <button class="btn-bookmark">★</button>
+        </div>
+        <h3>Sunrise Community Market</h3>
+        <p class="address">450 Sunrise Blvd, Eastside</p>
+        <p class="description">Community-focused stalls offering citrus fruits, fresh herbs, and farm eggs.</p>
+        <div class="schedule">
+          <strong>Schedule:</strong> Tue, Thu, Sun (9:00 AM - 3:00 PM)
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="#market-detail-2" class="btn-details">View Detail & Google Map</a>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=60" alt="Riverside Organic Plaza">
+      <div class="card-body">
+        <div class="card-top">
+          <span class="status status-open">Open Now · Closes in 1h 45m</span>
+          <button class="btn-bookmark">★</button>
+        </div>
+        <h3>Riverside Organic Plaza</h3>
+        <p class="address">88 River Road, Westside</p>
+        <p class="description">Scenic riverside market with organic produce, cheeses, jams, and plants.</p>
+        <div class="schedule">
+          <strong>Schedule:</strong> Fri, Sat, Sun (10:00 AM - 6:00 PM)
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="#market-detail-3" class="btn-details">View Detail & Google Map</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 6. SEASONAL HARVEST CALENDAR  -->
+  <section id="seasonal">
+  <div class="seasonal-header">
+    <div>
+      <h2>Seasonal Harvest Recommendations</h2>
+      <p>Check what fruits and produce are harvested during each month of the year.</p>
+    </div>
+    <span class="badge">Updated Monthly</span>
+  </div>
+
+  <div class="table-container">
+    <table class="seasonal-table">
+      <thead>
+        <tr>
+          <th>Produce Item</th>
+          <th>Category</th>
+          <th>Optimal Months</th>
+          <th>Status Right Now</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">🍓 Field Strawberries</td>
+          <td><span class="tag tag-fruit">Fruit</span></td>
+          <td>May, June, July</td>
+          <td><span class="status status-peak">In Peak Season</span></td>
+        </tr>
+        <tr>
+          <td class="item-name">🍅 Heirloom Tomatoes</td>
+          <td><span class="tag tag-veg">Vegetable</span></td>
+          <td>June, July, August, September</td>
+          <td><span class="status status-peak">In Peak Season</span></td>
+        </tr>
+        <tr>
+          <td class="item-name">🍎 Honeycrisp Apples</td>
+          <td><span class="tag tag-fruit">Fruit</span></td>
+          <td>September, October, November</td>
+          <td><span class="status status-soon">Harvest Starting Soon</span></td>
+        </tr>
+        <tr>
+          <td class="item-name">🌿 Sweet Basil</td>
+          <td><span class="tag tag-herb">Herb</span></td>
+          <td>June, July, August, September, October</td>
+          <td><span class="status status-peak">In Peak Season</span></td>
+        </tr>
+        <tr>
+          <td class="item-name">🍊 Navel Oranges</td>
+          <td><span class="tag tag-fruit">Fruit</span></td>
+          <td>November, December, January, February</td>
+          <td><span class="status status-off">Off Season</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+  <!-- 7. BOOKMARKS & SESSION NOTES  -->
+  <section id="bookmarks">
+  <div class="bookmarks-header">
+    <div>
+      <h2>My Bookmarked Markets & Notes</h2>
+      <p>Saved markets and personal shopping notes (session storage).</p>
+    </div>
+    <button class="btn-print" onclick="window.print()">Print / Save List</button>
+  </div>
+
+  <div class="bookmarks-grid">
+    <!-- Bookmark Item 1 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Green Valley Farmers Market</h3>
+        <button class="btn-delete" title="Remove bookmark">🗑</button>
+      </div>
+      <p class="address">101 Park Ave, Downtown</p>
+      
+      <div class="note-box">
+        <label for="note-1">Personal Session Note:</label>
+        <textarea id="note-1" rows="2" placeholder="e.g. Remember to buy fresh sourdough bread at Stall #4..."></textarea>
+      </div>
+    </div>
+
+    <!-- Bookmark Item 2 -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Sunrise Community Market</h3>
+        <button class="btn-delete" title="Remove bookmark">🗑</button>
+      </div>
+      <p class="address">450 Sunrise Blvd, Eastside</p>
+      
+      <div class="note-box">
+        <label for="note-2">Personal Session Note:</label>
+        <textarea id="note-2" rows="2" placeholder="e.g. Ask honey vendor about wildflower jars discount..."></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8. ABOUT US & PLATFORM INFO  -->  
+  <section id="about">
+  <div class="about-container">
+    <div class="about-text">
+      <span class="subtitle">Our Platform</span>
+      <h2>Connecting Communities with Local Growers</h2>
+      
+      <p class="lead">
+        FreshFind is a static, lightweight single-page platform designed to make finding organic local food simple and accessible for everyone.
+      </p>
+      
+      <p>
+        By eliminating long supply chains, we help residents support local farming families, access fresher seasonal fruits and produce, and discover unique local artisanal products.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>15+</h3>
+          <span>Partner Markets</span>
+        </div>
+        <div class="stat-card">
+          <h3>100%</h3>
+          <span>Organic Produce</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700&auto=format&fit=crop&q=60" alt="Organic Farm">
+    </div>
+  </div>
+</section>
+
+
+<!-- 9. CONTACT US & HEADQUARTERS -->
+  <section id="contact">
+  <h2>Contact FreshFind</h2>
+
+  <div class="contact-grid">
+    <!-- Contact Form Card -->
+    <div class="contact-card">
+      <h3>Send Us a Message</h3>
+      <form onsubmit="alert('Thank you! Message submitted.'); return false;">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="How can we help you?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info Card -->
+    <div class="contact-card">
+      <h3>Headquarters Info</h3>
+      
+      <div class="contact-details">
+        <p>📍 100 Green Street, Suite 400, Metro City</p>
+        <p>✉️ support@freshfind.org</p>
+        <p>📞 (555) 019-2834</p>
+      </div>
+
+      <!-- Embedded Google Map -->
+      <div class="map-container">
+        <iframe 
+          width="100%" 
+          height="200" 
+          style="border:0;" 
+          loading="lazy" 
+          src="https://maps.google.com/maps?q=100%20Green%20Street%20Metro%20City&t=&z=13&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 10. FLOATING RULE-BASED CHATBOT WIDGET -->
+  <div id="chatbot">
+  <!-- Toggle Button -->
+  <button id="chat-toggle" class="chat-btn">💬</button>
+
+  <!-- Chat Window -->
+  <div id="chat-window" class="chat-window hidden">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="chat-title">
+        <span>🤖</span>
+        <span>FreshFind Assistant</span>
+      </div>
+      <button id="chat-close" class="close-btn">&times;</button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="chat-messages" class="chat-body">
+      <div class="message bot-message">
+        Hello! How can I help you find fresh local produce or markets today?
+      </div>
+    </div>
+
+    <!-- Quick Action Chips -->
+    <div class="chat-chips">
+      <button class="chip" onclick="alert('Chatbot: Check market listings for open badges!')">Open Today?</button>
+      <button class="chip" onclick="alert('Chatbot: Tomatoes are available at 3 markets!')">Find Tomatoes</button>
+    </div>
+
+    <!-- Footer Input Form -->
+    <div class="chat-footer">
+      <form id="chat-form" onsubmit="return false;">
+        <input type="text" placeholder="Ask a question..." required>
+        <button type="submit" class="send-btn">➤</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--  11. FOOTER & REAL-TIME STATS  -->
+  <footer>
+  <div class="footer-container">
+    <div class="footer-top">
+      <!-- Brand Info -->
+      <div class="footer-brand">
+        <h3><a id="brand" href="#home"><img src="pictures/logo/nav-logo.png" style="border-radius: 10px;" height="30px" alt="footer-logo"></a></h3>
+        <p>Connecting residents with nearby farmers markets and fresh produce.</p>
+      </div>
+
+      <!-- Live Widgets -->
+      <div class="footer-widgets">
+        <span class="widget-badge">⏰ <span id="clock">10:00:00 AM</span></span>
+        <span class="widget-badge">👥 Visitor #<span id="visitors">104</span></span>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 FreshFind Platform. Read-only static SPA demo.</p>
+    </div>
+  </div>
+</footer>
+
+  
+
+  <!-- Application Scripts -->
+  
+</body>
+</html>
