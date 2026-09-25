@@ -1,0 +1,1158 @@
+
+/* ===== 1. THEME VARIABLES ===== */
+:root {
+  --bg: #f7fbf2;        /* page background (soft cream-green) */
+  --card: #ffffff;      /* cards, forms, tables */
+  --primary: #2e7d32;   /* main green: buttons, links, headings */
+  --primary-dark: #256628; /* darker green for hover */
+  --accent: #ff8a3d;    /* orange: sale tags, highlights */
+  --text: #1f2d1f;      /* main text color */
+  --muted: #5f6f5f;     /* lighter text: descriptions, addresses */
+  --border: #e3ecd9;    /* thin borders */
+  --radius: 14px;       /* rounded corners */
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --hero-gradient: linear-gradient(135deg, #2e7d32, #6aae4f);
+}
+
+
+/* ===== 2. RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* padding won't make boxes bigger than you set */
+}
+
+html {
+  scroll-behavior: smooth;  /* smooth scroll when clicking nav links */
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;          /* images never overflow on small screens */
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+/* Every section gets the same spacing and max width */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Stops the sticky navbar from covering titles when you click a link */
+header, section {
+  scroll-margin-top: 80px;
+}
+
+/* Visible outline for keyboard users (Tab key) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* ===== 3. NAVBAR ===== */
+#navbar {
+  position: sticky;            /* stays at the top while scrolling */
+  top: 0;
+  z-index: 1000;               /* keeps it above all other content */
+  display: flex;
+  justify-content: space-between;  /* logo left, menu right */
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--hero-gradient);
+  box-shadow: var(--shadow);
+}
+
+#brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;                   /* space between logo and text */
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffff
+}
+
+#menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+#menu ul {
+  list-style: none;            /* removes bullet points */
+  display: flex;
+  gap: 4px;
+}
+
+#menu ul a {
+  display: block;
+  padding: 8px 12px;
+  color: #ffff;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: 0.2s;            /* smooth hover effect */
+}
+
+#menu ul a:hover,
+#menu ul a.active {
+  background: rgba(255, 255, 255, 0.2);   /* was var(--border) */
+  color: #fff;                            /* was var(--primary) */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  font-family: inherit;        /* buttons ignore body font unless you say this */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-login {
+  background: transparent;
+  color:#ffff;
+  border: 2px solid #ffff;
+}
+
+.btn-login:hover {
+  background: #ffff;
+  color:var(--primary);
+}
+
+.btn-signup {
+  background: #fff;                   /* was var(--primary) */
+  color: var(--primary);              /* was #fff */
+  border: 2px solid #fff;
+}
+
+.btn-signup:hover {
+background: #e8f5e9;                /* was var(--primary-dark) */
+  border-color: #e8f5e9;}
+
+/* Hamburger: hidden on desktop */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+
+#hamburger span {
+  width: 26px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* When open, the 3 lines turn into an X */
+#hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+#hamburger.open span:nth-child(2) { opacity: 0; }
+#hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* ===== 4. HERO BANNER & SEARCH ===== */
+#home {
+  background-image: url(pictures/hero/hero-bgi.jpg);
+  background-size: cover;
+  background-repeat: none;
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-content .badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#home h1 {
+  color: #ffff;
+  font-size: clamp(2rem, 5vw, 3.2rem);  /* grows/shrinks with screen size */
+  margin-bottom: 16px;
+}
+
+#home p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ffff;
+}
+
+.search-form {
+  display: flex;
+  background: rgb(216, 236, 216);
+  border-radius: 50px;
+  padding: 3px;
+  }
+  
+
+.search-form input {
+  flex: 1;
+  min-width: 0;                /* lets the input shrink on small screens */
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  
+}
+
+.search-form button {
+  background: var(--accent);
+  color: #ffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-form button:hover {
+  background: #f0762a;
+}
+
+
+/* ===== 5. CAROUSEL ===== */
+.carousel-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 0;
+}
+
+.carousel-inner {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.carousel-item img {
+  height: 420px;
+  object-fit: cover;           /* crops the image instead of stretching it */
+}
+
+
+/* ===== 6. SHARED STYLES (used by more than one section) ===== */
+
+/* Small orange text above headings */
+.subtitle {
+  display: block;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Base card: used in sales, produce, markets and bookmarks */
+.card {
+  display: flex;
+  flex-direction: column;      /* stacks image, content and footer */
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;            /* keeps images inside rounded corners */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  margin-bottom: 6px;
+}
+
+/* Small colored pill: used for status badges */
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Small category label: used on cards */
+.category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* Rounded "pill" links/buttons used in several headers */
+.badge-alert,
+.seasonal-header .badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #fff1e6;
+  color: var(--accent);
+}
+
+/* Section headers: title on the left, extra item on the right */
+.sales-header,
+.markets-header,
+.seasonal-header,
+.bookmarks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;             /* wraps to next line on small screens */
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.sales-header p,
+.markets-header p,
+.seasonal-header p,
+.bookmarks-header p {
+  color: var(--muted);
+}
+
+/* Grids: columns fill the row automatically (responsive, no media query!) */
+.sales-grid,
+.produce-grid,
+.markets-grid,
+.bookmarks-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.sales-grid     { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.produce-grid   { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.markets-grid   { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.bookmarks-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+
+
+
+
+/* ===== 8. PRODUCE GUIDE ===== */
+
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    padding: 1rem;
+     background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: 1s;
+    cursor: pointer;
+}
+.product-img:hover{
+    transform: scale(1.05);
+    
+}
+.add-btn {
+    width: 32px;
+    height: 32px;
+    background-color: #7ed957;
+    color: white;
+    border: 0;
+    border-radius: 50%;
+    font-weight: bold;
+
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.product-small-img {
+    width: 100%;
+    max-height: 70px;
+    object-fit: contain;
+    transition: 1s;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    position: relative;
+    
+}
+.product-small-img:hover{
+    transform: scale(1.10);
+}
+
+.product-badge {
+    top: -8px;
+    right: 15px;
+    font-size: 0.7rem;
+}
+.section-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    overflow: hidden;
+}
+
+.hot-items-banner {
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+}
+.section-title {
+    margin: 0;
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hot-items-title {
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+.fruits-banner {
+    background: linear-gradient(180deg, #ffdb15 0%, #ffaa00 100%);
+}
+.fruits-title {
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.vegetables-banner {
+    background: linear-gradient(180deg, #7ed957 0%, #3fa34d 100%);
+}
+.vegetables-title {
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.product-card {
+    height: 100%;
+    position: relative;
+    background-color: white;
+    border: 0;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+.deals-banner {
+    background: linear-gradient(180deg, #cbe638 0%, #7db928 100%);
+}
+
+.deals-title {
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.product-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+}
+.product-desc {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-bottom: 0;
+    line-height: 1.25;
+    
+}
+.product-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
+
+/* ===== 9. MARKET DIRECTORY ===== */
+.markets-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-location {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-location:hover {
+  background: var(--primary-dark);
+}
+
+.area-select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.markets-grid .card > img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  flex: 1;
+  padding: 18px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.status-open   { background: #e8f5e9; color: var(--primary); }
+.status-closed { background: #fdecea; color: #c62828; }
+
+.btn-bookmark {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #c9d3c0;              /* grey star = not bookmarked */
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-bookmark:hover,
+.btn-bookmark.saved {
+  color: var(--accent);        /* orange star = bookmarked */
+}
+
+.address {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.schedule {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 0.9rem;
+}
+
+.btn-details {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.btn-details:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+
+/* ===== 10. SEASONAL GUIDE (table) ===== */
+.table-container {
+  overflow-x: auto;            /* table scrolls sideways on phones */
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.seasonal-table {
+  width: 100%;
+  border-collapse: collapse;   /* removes gaps between cells */
+  min-width: 600px;
+}
+
+.seasonal-table th {
+  background: var(--primary);
+  color: #fff;
+  text-align: left;
+  padding: 14px 18px;
+}
+
+.seasonal-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.seasonal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.seasonal-table tbody tr:hover {
+  background: var(--bg);
+}
+
+.item-name {
+  font-weight: 700;
+}
+
+/* Category tags */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.tag-fruit { background: #ffe9e0; color: #d9480f; }
+.tag-veg   { background: #e8f5e9; color: var(--primary); }
+.tag-herb  { background: #e6f7ec; color: #1b7a3d; }
+
+/* Season status */
+.status-peak { background: #e8f5e9; color: var(--primary); }
+.status-soon { background: #fff8db; color: #a67c00; }
+.status-off  { background: #eceff1; color: #607d8b; }
+
+
+/* ===== 11. BOOKMARKS ===== */
+.btn-print {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-print:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.bookmarks-grid .card {
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+}
+
+.note-box {
+  margin-top: 12px;
+}
+
+.note-box label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.note-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;            /* user can only resize up/down */
+}
+
+.note-box textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+
+/* ===== 12. ABOUT US ===== */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* text and image side by side */
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text h2 {
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.about-text .lead {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+
+/* ===== 13. CONTACT ===== */
+#contact > h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+
+.contact-card h3 {
+  margin-bottom: 18px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  background: #fff;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--primary-dark);
+}
+
+.contact-details p {
+  margin-bottom: 10px;
+}
+
+.map-container {
+  margin-top: 18px;
+}
+
+.map-container iframe {
+  border-radius: 10px;
+}
+
+
+/* ===== 14. CHATBOT WIDGET ===== */
+#chatbot {
+  position: fixed;             /* stays in the corner while scrolling */
+  bottom: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.chat-btn {
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;          /* 50% makes a perfect circle */
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+}
+
+.chat-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.08);
+}
+
+.chat-window {
+  position: absolute;
+  bottom: 70px;                /* sits just above the round button */
+  right: 0;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+/* JS adds/removes this class to open and close the chat */
+.chat-window.hidden {
+  display: none;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chat-body {
+  height: 240px;
+  overflow-y: auto;            /* scrolls when messages pile up */
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg);
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+}
+
+.bot-message {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+
+/* For later, when we add JS so users can send messages */
+.user-message {
+  align-self: flex-end;        /* pushes it to the right */
+  background: var(--primary);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.chip {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chip:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.chat-footer form {
+  display: flex;
+  border-top: 1px solid var(--border);
+}
+
+.chat-footer input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.send-btn {
+  border: none;
+  padding: 0 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+
+/* ===== 15. FOOTER ===== */
+footer {
+  background: #1f3a24;         /* dark green */
+  color: #dfe9d8;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand p {
+  margin-top: 8px;
+  max-width: 340px;
+}
+
+.footer-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.widget-badge {
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+}
+
+.footer-bottom {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+/* ===== 16. RESPONSIVE: TABLET & MOBILE ===== */
+
+/* Tablet and smaller: hamburger menu, one-column layouts */
+@media (max-width: 900px) {
+  /* navbar */
+  #hamburger {
+    display: flex;             /* show the hamburger */
+  }
+
+  #menu {
+    display: none;             /* hidden until the hamburger is clicked */
+    position: absolute;
+    top: 100%;                 /* drops right below the navbar */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 24px 24px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+  }
+
+  #menu.open {
+    display: flex;             /* JS adds this class on click */
+  }
+
+  #menu ul {
+    flex-direction: column;
+  }
+
+  .auth-buttons button {
+    flex: 1;                   /* buttons share the width equally */
+  }
+
+  /* other sections */
+  .about-container,
+  .contact-grid {
+    grid-template-columns: 1fr;  /* stack into one column */
+  }
+
+  .about-image {
+    order: -1;                 /* image moves above the text */
+  }
+
+  .carousel-item img {
+    height: 300px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  section {
+    padding: 40px 16px;
+  }
+
+  #home {
+    padding: 56px 16px;
+  }
+
+  .carousel-item img {
+    height: 200px;
+  }
+
+  .markets-controls {
+    width: 100%;
+  }
+
+  .area-select {
+    flex: 1;
+  }
+
+  .chat-window {
+    width: calc(100vw - 40px); /* chat fits the screen width */
+  }
+}
+
+/* Respect users who turn off animations in their device settings */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
